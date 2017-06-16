@@ -20,4 +20,17 @@ Underscore Library 구현하기 프로젝트
 
 - - -
 
+2017.06.16
+1. 모듈노출패턴으로 변경
+2. reduceRight 함수 구현 및 Unit Test
+3. find 함수 구현 및 Unit Test
+4. filter 함수 구현 및 Unit Test
+5. where 함수 구현 및 Unit Test
+6. findWhere 함수 구현 및 Unit Test
+7. reject 함수 구현 및 Unit Test
+8. every 함수 구현 및 Unit Test
+
+- - -
+
+
 
