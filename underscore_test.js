@@ -94,3 +94,35 @@ describe("_.where function Test",function(){
         assert.deepEqual(result, []);
     });
 });
+
+
+describe("_.findWhere function Test",function(){
+    it("returns the first value that matches all of the key-value pairs listed in properties.", function(){
+        var listOfPlays = [
+          {title: "Cymbeline", author: "Shakespeare", year: 1611},
+          {title: "One", author: "Shakespeare", year: 1},
+          {title: "Two", author: "Shake", year: 1611},
+          {title: "The Tempest", author: "Shakespeare", year: 1611}
+        ]
+        var result = _.findWhere(listOfPlays, {author: "Shakespeare", year: 1611});
+        assert.deepEqual(result, {title: "Cymbeline", author: "Shakespeare", year: 1611});
+    });
+
+    it("returns the first value that matches all of the key-value pairs listed in properties.", function(){
+        var listOfPlays = [
+          {title: "Cymbeline", author: "Shakespeare", year: 1611},
+          {title: "One", author: "Shakespeare", year: 1},
+          {title: "Two", author: "Shake", year: 1611},
+          {title: "The Tempest", author: "Shakespeare", year: 1611}
+        ]
+        var result = _.findWhere(listOfPlays, {age: "18"});
+        assert.deepEqual(result, undefined);
+    });
+});
+
+describe("_.reject function Test",function(){
+    it("Returns the values in list without the elements that the truth test (predicate) passes.", function(){
+        var result = _.reject([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+        assert.deepEqual(result, [1, 3, 5]);
+    });
+});

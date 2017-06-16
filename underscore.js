@@ -94,19 +94,45 @@ return : array
     for(i = 0 ; i < listLength; i++){
       var isHas = false;
       for(var key in properties){
-        if(list[i].hasOwnProperty(key)){
-          if(properties[key] === list[i][key]){
-            isHas = true;
-          }else{
-            isHas = false;
-            break;
-          }
+        if(list[i].hasOwnProperty(key) && properties[key] === list[i][key]){
+          isHas = true;
+        }else{
+          isHas = false;
+          break;
         }
       }
       if(isHas === true){
         result.push(list[i]);
       }
     }
+    return result;
+  }
+
+  var findWhere = function(list, properties){
+    var i,
+        listLength = list.length;
+
+    for(i = 0; i < listLength; i++){
+      var isHas = false;
+      for(var key in properties){
+        if(list[i].hasOwnProperty(key) && list[i][key] === properties[key]){
+          return list[i]
+        }
+      }
+    }
+  }
+
+  var reject = function(list, cb){
+    var i,
+        listLength = list.length,
+        result = [];
+
+    for(i = 0; i < listLength; i++){
+      if(!cb(list[i])){
+        result.push(list[i])
+      }
+    }
+
     return result;
   }
 
@@ -117,7 +143,9 @@ return : array
     "reduceRight" : reduceRight,
     "find" : find,
     "filter" : filter,
-    "where" : where
+    "where" : where,
+    "findWhere" : findWhere,
+    "reject" : reject
   }
 
 })(window)
