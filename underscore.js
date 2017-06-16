@@ -136,6 +136,21 @@ return : array
     return result;
   }
 
+  var every = function(list, cb){
+    var i,
+        listLength = list.length,
+        isEvery = true;
+
+    for(i = 0; i < listLength; i++){
+      if(!cb(list[i])){
+        isEvery = false;
+        return isEvery;
+      }
+    }
+
+    return isEvery;
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -145,7 +160,8 @@ return : array
     "filter" : filter,
     "where" : where,
     "findWhere" : findWhere,
-    "reject" : reject
+    "reject" : reject,
+    "every" : every
   }
 
 })(window)
