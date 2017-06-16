@@ -68,6 +68,20 @@ return : array
           return list[i]
         }
       }
+    },
+
+    filter : function(list, cb){
+      var i,
+          listLength = list.length,
+          result = [];
+
+      for(i = 0; i < listLength; i++){
+        if(cb(list[i])){
+          result.push(list[i])
+        }
+      }
+
+      return result;
     }
   }
 
