@@ -8,9 +8,10 @@ return : array
 */
   return {
     each : function(list, cb){
-      var i;
+      var i,
+          listLength = list.length;
       if(Array.isArray(list)){
-        for(i = 0; i < list.length; i++){
+        for(i = 0; i < listLength; i++){
           cb(list[i]);
         }
       }else{
@@ -22,9 +23,10 @@ return : array
 
     map : function(list, cb){
       var i,
+          listLength = list.length,
           result = [];
       if(Array.isArray(list)){
-        for(i = 0; i < list.length; i++){
+        for(i = 0; i < listLength; i++){
           result.push(cb(list[i]));
         }
       }else{
@@ -37,8 +39,20 @@ return : array
 
     reduce : function(list, cb, memo){
       var i,
+          listLength = list.length,
           result = 0;
-      for(i = 0; i < list.length; i++){
+      for(i = 0; i < listLength; i++){
+        memo = cb(memo, list[i]);
+      }
+      result = memo;
+      return result;
+    },
+
+    reduceRight : function(list, cb, memo){
+      var i,
+          listLength = list.length,
+          result = 0;
+      for(i = listLength - 1; i >= 0; i--){
         memo = cb(memo, list[i]);
       }
       result = memo;

@@ -38,6 +38,18 @@ describe("_.reduce function Test",function(){
 
     it("every number sum", function(){
         var result = _.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0)
-        assert.deepEqual(result, 6);
+        assert.equal(result, 6);
+    });
+});
+
+describe("_.reduceRight function Test",function(){
+    it("two-dimensional array concat", function(){
+        var result = _.reduceRight([[0, 4], [2, 1], [4, 5]], function(a, b) { return a.concat(b); }, [])
+        assert.deepEqual(result, [4,5,2,1,0,4]);
+    });
+
+    it("every number sum", function(){
+        var result = _.reduceRight([1, 2, 3], function(memo, num){ return memo + num; }, 0)
+        assert.equal(result, 6);
     });
 });
