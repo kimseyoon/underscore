@@ -67,3 +67,30 @@ describe("_.filter function Test",function(){
         assert.deepEqual(result, [2, 4, 6]);
     });
 });
+
+describe("_.where function Test",function(){
+    it("returning an array of all the values that contain all of the key-value pairs listed in properties", function(){
+        var listOfPlays = [
+          {title: "Cymbeline", author: "Shakespeare", year: 1611},
+          {title: "One", author: "Shakespeare", year: 1},
+          {title: "Two", author: "Shake", year: 1611},
+          {title: "The Tempest", author: "Shakespeare", year: 1611}
+        ]
+        var result = _.where(listOfPlays, {author: "Shakespeare", year: 1611});
+        assert.deepEqual(result, [
+          {title: "Cymbeline", author: "Shakespeare", year: 1611},
+          {title: "The Tempest", author: "Shakespeare", year: 1611}
+        ]);
+    });
+
+    it("returning an array of all the values that contain all of the key-value pairs listed in properties", function(){
+        var listOfPlays = [
+          {title: "Cymbeline", author: "Shakespeare", year: 1611},
+          {title: "One", author: "Shakespeare", year: 1},
+          {title: "Two", author: "Shake", year: 1611},
+          {title: "The Tempest", author: "Shakespeare", year: 1611}
+        ]
+        var result = _.where(listOfPlays, {author: "She"});
+        assert.deepEqual(result, []);
+    });
+});

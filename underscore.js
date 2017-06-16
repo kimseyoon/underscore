@@ -82,6 +82,30 @@ return : array
       }
 
       return result;
+    },
+
+    where : function(list, properties){
+      var i,
+          listLength = list.length,
+          result = [];
+
+      for(i = 0 ; i < listLength; i++){
+        var isHas = false;
+        for(var key in properties){
+          if(list[i].hasOwnProperty(key)){
+            if(properties[key] === list[i][key]){
+              isHas = true;
+            }else{
+              isHas = false;
+              break;
+            }
+          }
+        }
+        if(isHas === true){
+          result.push(list[i]);
+        }
+      }
+      return result;
     }
   }
 
