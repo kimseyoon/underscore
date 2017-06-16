@@ -57,6 +57,17 @@ return : array
       }
       result = memo;
       return result;
+    },
+
+    find : function(list, cb){
+      var i,
+          listLength = list.length;
+
+      for(i = 0 ; i < listLength; i++){
+        if(cb(list[i])){
+          return list[i]
+        }
+      }
     }
   }
 

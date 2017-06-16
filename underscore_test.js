@@ -53,3 +53,11 @@ describe("_.reduceRight function Test",function(){
         assert.equal(result, 6);
     });
 });
+
+
+describe("_.find function Test",function(){
+    it("returning the first one that passes a truth test (predicate)", function(){
+        var result = _.find([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; })
+        assert.equal(result, 2);
+    });
+});
