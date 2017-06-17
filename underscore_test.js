@@ -185,3 +185,17 @@ describe("_.pluck function Test",function(){
         assert.deepEqual(result, ["moe", "larry", "curly"]);
     });
 });
+
+describe("_.max function Test",function(){
+    it("Returns the maximum value in list", function(){
+        var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+        var result = _.max(stooges, function(stooge){ return stooge.age; });
+        assert.deepEqual(result, {name: 'curly', age: 60});
+    });
+
+    it("Returns the maximum value in list", function(){
+        var stooges = [1, 100, 20, 14, 44];
+        var result = _.max(stooges);
+        assert.equal(result, 100);
+    });
+});

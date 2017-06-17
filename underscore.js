@@ -202,6 +202,32 @@ return : array
     return result;
   }
 
+  var max = function(list, cb){
+    var i,
+        listLength = list.length,
+        maxNum = 0,
+        num = 0,
+        index = 0;
+    if(cb === undefined){
+      for(i = 0; i < listLength; i++){
+        if(maxNum < list[i]){
+          maxNum = list[i];
+          index = i;
+        }
+      }
+      return list[index];
+    }else{
+      for(i = 0; i < listLength; i++){
+        num = cb(list[i])
+        if(maxNum < num){
+          maxNum = num;
+          index = i;
+        }
+      }
+      return list[index];
+    }
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -216,7 +242,8 @@ return : array
     "some" : some,
     "contains" : contains,
     "invoke" : invoke,
-    "pluck" : pluck
+    "pluck" : pluck,
+    "max" : max
   }
 
 })(window)
