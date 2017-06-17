@@ -64,7 +64,6 @@ return : array
   var find = function(list, cb){
     var i,
         listLength = list.length;
-
     for(i = 0 ; i < listLength; i++){
       if(cb(list[i])){
         return list[i]
@@ -76,7 +75,6 @@ return : array
     var i,
         listLength = list.length,
         result = [];
-
     for(i = 0; i < listLength; i++){
       if(cb(list[i])){
         result.push(list[i])
@@ -90,7 +88,6 @@ return : array
     var i,
         listLength = list.length,
         result = [];
-
     for(i = 0 ; i < listLength; i++){
       var isHas = false;
       for(var key in properties){
@@ -111,7 +108,6 @@ return : array
   var findWhere = function(list, properties){
     var i,
         listLength = list.length;
-
     for(i = 0; i < listLength; i++){
       var isHas = false;
       for(var key in properties){
@@ -126,13 +122,11 @@ return : array
     var i,
         listLength = list.length,
         result = [];
-
     for(i = 0; i < listLength; i++){
       if(!cb(list[i])){
         result.push(list[i])
       }
     }
-
     return result;
   }
 
@@ -140,7 +134,6 @@ return : array
     var i,
         listLength = list.length,
         isEvery = true;
-
     if(cb === undefined){
       for(i = 0; i < listLength; i++){
         if(!list[i]){
@@ -156,7 +149,6 @@ return : array
         }
       }
     }
-
     return isEvery;
   }
 
@@ -164,7 +156,6 @@ return : array
     var i,
         listLength = list.length,
         isSome = false;
-
     if(cb === undefined){
       for(i = 0; i < listLength; i++){
         if(list[i]){
@@ -180,7 +171,6 @@ return : array
         }
       }
     }
-
     return isSome;
   }
 
@@ -196,11 +186,19 @@ return : array
     var i,
         listLength = list.length,
         result = [];
-
     for(i = 0 ; i < list.length; i++){
       result.push(list[i][methodName](arg));
     }
+    return result;
+  }
 
+  var pluck = function(list, propertyName){
+    var i,
+        listLength = list.length,
+        result = [];
+    for(i = 0; i < listLength; i++){
+      result.push(list[i][propertyName]);
+    }
     return result;
   }
 
@@ -217,7 +215,8 @@ return : array
     "every" : every,
     "some" : some,
     "contains" : contains,
-    "invoke" : invoke
+    "invoke" : invoke,
+    "pluck" : pluck
   }
 
 })(window)

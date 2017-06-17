@@ -177,3 +177,11 @@ describe("_.invoke function Test",function(){
         assert.deepEqual(result, ["apple#banana#mango", "pepsi#fanta#sprite", "bear#wolf#parrot"]);
     });
 });
+
+describe("_.pluck function Test",function(){
+    it("A convenient version of what is perhaps the most common use-case for map: extracting a list of property values.", function(){
+        var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+        var result = _.pluck(stooges, 'name');
+        assert.deepEqual(result, ["moe", "larry", "curly"]);
+    });
+});
