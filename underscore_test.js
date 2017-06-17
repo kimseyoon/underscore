@@ -199,3 +199,17 @@ describe("_.max function Test",function(){
         assert.equal(result, 100);
     });
 });
+
+describe("_.min function Test",function(){
+    it("Returns the minimum value in list", function(){
+        var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+        var result = _.min(stooges, function(stooge){ return stooge.age; });
+        assert.deepEqual(result, {name: 'moe', age: 40});
+    });
+
+    it("Returns the minimum value in list", function(){
+        var stooges = [1, 100, 20, 14, 44];
+        var result = _.min(stooges);
+        assert.equal(result, 1);
+    });
+});

@@ -228,6 +228,32 @@ return : array
     }
   }
 
+  var min = function(list, cb){
+    var i,
+        listLength = list.length,
+        minNum = 0,
+        num = 0,
+        index = 0;
+    if(cb === undefined){
+      for(i = 0; i < listLength; i++){
+        if(minNum > list[i]){
+          minNum = list[i];
+          index = i;
+        }
+      }
+      return list[index];
+    }else{
+      for(i = 0; i < listLength; i++){
+        num = cb(list[i])
+        if(minNum > num){
+          minNum = num;
+          index = i;
+        }
+      }
+      return list[index];
+    }
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -243,7 +269,8 @@ return : array
     "contains" : contains,
     "invoke" : invoke,
     "pluck" : pluck,
-    "max" : max
+    "max" : max,
+    "min" : min
   }
 
 })(window)
