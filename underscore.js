@@ -141,14 +141,47 @@ return : array
         listLength = list.length,
         isEvery = true;
 
-    for(i = 0; i < listLength; i++){
-      if(!cb(list[i])){
-        isEvery = false;
-        return isEvery;
+    if(cb === undefined){
+      for(i = 0; i < listLength; i++){
+        if(!list[i]){
+          isEvery = false;
+          return isEvery;
+        }
+      }
+    }else{
+      for(i = 0; i < listLength; i++){
+        if(!cb(list[i])){
+          isEvery = false;
+          return isEvery;
+        }
       }
     }
 
     return isEvery;
+  }
+
+  var some = function(list, cb){
+    var i,
+        listLength = list.length,
+        isSome = false;
+
+    if(cb === undefined){
+      for(i = 0; i < listLength; i++){
+        if(list[i]){
+          isSome = true;
+          return isSome
+        }
+      }
+    }else{
+      for(i = 0; i < listLength; i++){
+        if(cb(list[i])){
+          isSome = true;
+          return isSome;
+        }
+      }
+    }
+
+    return isSome;
   }
 
   return {
@@ -161,7 +194,8 @@ return : array
     "where" : where,
     "findWhere" : findWhere,
     "reject" : reject,
-    "every" : every
+    "every" : every,
+    "some" : some
   }
 
 })(window)

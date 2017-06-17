@@ -130,11 +130,28 @@ describe("_.reject function Test",function(){
 describe("_.every function Test",function(){
     it("Returns true if all of the values in the list pass the predicate truth test.", function(){
         var result = _.every([2, 4, 5], function(num) { return num % 2 == 0; });
-        assert.deepEqual(result, false);
+        assert.equal(result, false);
     });
 
     it("Returns true if all of the values in the list pass the predicate truth test.", function(){
         var result = _.every([2, 4, 6], function(num) { return num % 2 == 0; });
-        assert.deepEqual(result, true);
+        assert.equal(result, true);
+    });
+
+    it("Returns true if any of the values in the list pass the predicate truth test.", function(){
+        var result = _.every([null, 0, 'yes', false]);
+        assert.equal(result, false);
+    });
+});
+
+describe("_.some function Test",function(){
+    it("Returns true if any of the values in the list pass the predicate truth test.", function(){
+        var result = _.some([2, 4, 5], function(num) { return num % 2 == 0; });
+        assert.equal(result, true);
+    });
+
+    it("Returns true if any of the values in the list pass the predicate truth test.", function(){
+        var result = _.some([null, 0, 'yes', false]);
+        assert.equal(result, true);
     });
 });
