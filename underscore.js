@@ -184,6 +184,26 @@ return : array
     return isSome;
   }
 
+  var contains = function(list, value){
+    var isContains = false;
+    if(list.indexOf(value)){
+      isContains = true;
+    }
+    return isContains
+  }
+
+  var invoke = function(list, methodName, arg){
+    var i,
+        listLength = list.length,
+        result = [];
+
+    for(i = 0 ; i < list.length; i++){
+      result.push(list[i][methodName](arg));
+    }
+
+    return result;
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -195,7 +215,9 @@ return : array
     "findWhere" : findWhere,
     "reject" : reject,
     "every" : every,
-    "some" : some
+    "some" : some,
+    "contains" : contains,
+    "invoke" : invoke
   }
 
 })(window)

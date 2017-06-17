@@ -155,3 +155,25 @@ describe("_.some function Test",function(){
         assert.equal(result, true);
     });
 });
+
+describe("_.contains function Test",function(){
+    it("Returns true if the value is present in the list.", function(){
+        var result = _.contains([1, 2, 3], 3);
+        assert.equal(result, true);
+    });
+});
+
+
+describe("_.invoke function Test",function(){
+    it("Calls the method named by methodName on each value in the list", function(){
+        var result = _.invoke([[5, 1, 7], [3, 2, 1]], 'sort');
+        assert.deepEqual(result, [[1, 5, 7], [1, 2, 3]]);
+    });
+
+    it("Calls the method named by methodName on each value in the list", function(){
+        var result = _.invoke( [['apple', 'banana', 'mango'],
+                                ['pepsi', 'fanta', 'sprite'],
+                                ['bear', 'wolf', 'parrot']] , 'join', '#');
+        assert.deepEqual(result, ["apple#banana#mango", "pepsi#fanta#sprite", "bear#wolf#parrot"]);
+    });
+});
