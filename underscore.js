@@ -254,6 +254,79 @@ return : array
     }
   }
 
+  var sortBy = function(list, cb){
+    var i,
+        listLength = list.length,
+        cbReturnArr = [],
+        dataStore = {},
+        result = [];
+
+    if(typeof cb === "function"){
+      for(i = 0; i < listLength; i++){
+        dataStore[list[i]] = cb(list[i]);
+        cbReturnArr.push(dataStore[list[i]])
+      }
+
+      var sortedArr = _quickSort(cbReturnArr);
+      for(var i = 0; i < sortedArr.length ; i++){
+        for (var key in dataStore){
+          if(dataStore[key] === sortedArr[i]){
+            console.log(typeof key)
+            result.push(key)
+          }
+        }
+      }
+
+      console.log(result)
+
+
+
+      return result
+    }else{
+      console.log("dd")
+    }
+
+  }
+
+  function _quickSort(arr){
+    if(arr.length == 0){
+      return [];
+    }
+    var i,
+        arrLength = arr.length,
+        left = [],
+        right = [],
+        pivot = arr[0];
+    for(i = 1; i < arrLength; i++){
+      if(arr[i] < pivot){
+        left.push(arr[i]);
+      }else{
+        right.push(arr[i]);
+      }
+    }
+    return _quickSort(left).concat(pivot, _quickSort(right));
+  }
+
+  var groupBy = function(list, cb){
+    var i,
+        listLength = list.length,
+        cbReturnVal,
+        obj = {};
+
+    for(i = 0 ; i < listLength; i++){
+      if(typeof cb === "function"){
+        cbReturnVal = cb(list[i]);
+      }else{
+        cbReturnVal = list[i][cb];
+      }
+      if(!obj[cbReturnVal]){
+        obj[cbReturnVal] = []
+      }
+      obj[cbReturnVal].push(list[i]);
+    }
+    return obj;
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -270,7 +343,9 @@ return : array
     "invoke" : invoke,
     "pluck" : pluck,
     "max" : max,
-    "min" : min
+    "min" : min,
+    "sortBy" : sortBy,
+    "groupBy" : groupBy
   }
 
 })(window)

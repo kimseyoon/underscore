@@ -213,3 +213,33 @@ describe("_.min function Test",function(){
         assert.equal(result, 1);
     });
 });
+
+describe("_.sortBy function Test",function(){
+    it("Returns a (stably) sorted copy of list", function(){
+        var result = _.sortBy([1, 2, 3, 4, 5, 6], function(num){ return Math.sin(num); });
+        assert.deepEqual(result, [5, 4, 6, 3, 1, 2]);
+    });
+
+    it("Returns a (stably) sorted copy of list", function(){
+        var result = _.sortBy(["a", "aaa", "aaaa", "a", "", "aaaaaaa"], function(num){ return num.length; });
+        assert.deepEqual(result, ["", "a", "a", "aaa", "aaaa", "aaaaaaa"]);
+    });
+
+    it("Returns a (stably) sorted copy of list", function(){
+        var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+        var result = _.sortBy(stooges, 'name');
+        assert.deepEqual(result, [{name: 'curly', age: 60}, {name: 'larry', age: 50}, {name: 'moe', age: 40}]);
+    });
+});
+
+describe("_.groupBy function Test",function(){
+  it("Splits a collection into sets, grouped by the result of running each value through iteratee", function(){
+      var result = _.groupBy([1.3, 2.1, 2.4], function(num){ return Math.floor(num); });
+      assert.deepEqual(result, {1: [1.3], 2: [2.1, 2.4]});
+  });
+
+  it("If iteratee is a string instead of a function, groups by the property named by iteratee on each of the values.", function(){
+      var result = _.groupBy(['one', 'two', 'three'], 'length');
+      assert.deepEqual(result, {3: ["one", "two"], 5: ["three"]});
+  });
+});
