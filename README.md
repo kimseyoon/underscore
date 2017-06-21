@@ -32,5 +32,17 @@ Underscore Library 구현하기 프로젝트
 
 - - -
 
+### 2017.06.17
 
+
+1. some
+2. contains
+3. invoke
+4. pluck
+5. max
+6. min 
+
+함수 구현 및 Unit Test
+
+- - -
 
