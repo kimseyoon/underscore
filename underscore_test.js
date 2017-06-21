@@ -243,3 +243,16 @@ describe("_.groupBy function Test",function(){
       assert.deepEqual(result, {3: ["one", "two"], 5: ["three"]});
   });
 });
+
+
+describe("_.indexBy function Test",function(){
+  it(" returns an object with an index of each item", function(){
+      var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+      var result = _.indexBy(stooges, 'age');
+      assert.deepEqual(result, {
+        "40": {name: 'moe', age: 40},
+        "50": {name: 'larry', age: 50},
+        "60": {name: 'curly', age: 60}
+      });
+  });
+});

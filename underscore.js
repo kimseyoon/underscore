@@ -327,6 +327,18 @@ return : array
     return obj;
   }
 
+  var indexBy = function(list, cb){
+    var i,
+        listLength = list.length,
+        obj = {};
+
+    for(i = 0 ; i < listLength ; i++){
+      obj[list[i][cb]] = list[i];
+    }
+
+    return obj;
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -345,7 +357,8 @@ return : array
     "max" : max,
     "min" : min,
     "sortBy" : sortBy,
-    "groupBy" : groupBy
+    "groupBy" : groupBy,
+    "indexBy" : indexBy
   }
 
 })(window)
