@@ -339,6 +339,25 @@ return : array
     return obj;
   }
 
+  var countBy = function(list, cb){
+    var i,
+        listLength = list.length,
+        val,
+        obj = {};
+
+    for(i = 0; i < listLength; i++){
+      val = cb(list[i]);
+      if(!obj[val]){
+        obj[val] = 1;
+      }else{
+        obj[val] += 1;
+      }
+    }
+
+    return obj;
+
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -358,7 +377,8 @@ return : array
     "min" : min,
     "sortBy" : sortBy,
     "groupBy" : groupBy,
-    "indexBy" : indexBy
+    "indexBy" : indexBy,
+    "countBy" : countBy
   }
 
 })(window)

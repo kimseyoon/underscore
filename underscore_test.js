@@ -256,3 +256,12 @@ describe("_.indexBy function Test",function(){
       });
   });
 });
+
+describe("_.countBy function Test",function(){
+  it("Sorts a list into groups and returns a count for the number of objects in each group", function(){
+      var result = _.countBy([1, 2, 3, 4, 5], function(num) {
+        return num % 2 == 0 ? 'even': 'odd';
+      });
+      assert.deepEqual(result, {odd: 3, even: 2});
+  });
+});
