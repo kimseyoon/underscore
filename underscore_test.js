@@ -272,3 +272,16 @@ describe("_.countBy function Test",function(){
 //       assert.deepEqual(result, );
 //   });
 // });
+
+describe("_.countBy function Test",function(){
+  it("Produce a random sample from the list", function(){
+      var result = _.sample([1, 2, 3, 4, 5, 6]);
+      assert.deepEqual(result,);
+  });
+
+
+  it("Produce a random sample from the list", function(){
+      var result = _.sample([1, 2, 3, 4, 5, 6], 3);
+      assert.deepEqual(result,);
+  });
+});

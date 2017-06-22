@@ -372,6 +372,25 @@ return : array
     return list;
   }
 
+  var sample = function(list, num){
+    var i,
+        index,
+        result = [];
+
+    if(num === undefined){
+      index = Math.floor((Math.random() * (list.length)) + 0);
+      return list[index];
+    }
+
+    for(i = 0 ; i < num ; i++){
+      var listLength = list.length;
+      index = Math.floor((Math.random() * (listLength)) + 0);
+      result.push(list.splice(index, 1)[0]);
+    }
+
+    return result;
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -393,7 +412,8 @@ return : array
     "groupBy" : groupBy,
     "indexBy" : indexBy,
     "countBy" : countBy,
-    "shuffle" : shuffle
+    "shuffle" : shuffle,
+    "sample" : sample
   }
 
 })(window)
