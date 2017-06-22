@@ -344,7 +344,6 @@ return : array
         listLength = list.length,
         val,
         obj = {};
-
     for(i = 0; i < listLength; i++){
       val = cb(list[i]);
       if(!obj[val]){
@@ -353,9 +352,24 @@ return : array
         obj[val] += 1;
       }
     }
-
     return obj;
 
+  }
+
+  var shuffle = function(list){
+    var i,
+        listLength = list.length,
+        index,
+        temp;
+
+    for(i = listLength - 1; i > 0; i--){
+      index = Math.floor((Math.random() * (i)) + 0);
+      temp = list[i];
+      list[i] = list[index];
+      list[index] = temp;
+    }
+
+    return list;
   }
 
   return {
@@ -378,7 +392,8 @@ return : array
     "sortBy" : sortBy,
     "groupBy" : groupBy,
     "indexBy" : indexBy,
-    "countBy" : countBy
+    "countBy" : countBy,
+    "shuffle" : shuffle
   }
 
 })(window)

@@ -265,3 +265,10 @@ describe("_.countBy function Test",function(){
       assert.deepEqual(result, {odd: 3, even: 2});
   });
 });
+// 어떻게 shuffle이 잘되었는지 궁금합니다.
+// describe("_.shuffle function Test",function(){
+//   it("Returns a shuffled copy of the list", function(){
+//       var result = _.shuffle([1, 2, 3, 4, 5, 6]);
+//       assert.deepEqual(result, );
+//   });
+// });
