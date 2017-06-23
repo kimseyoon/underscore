@@ -407,6 +407,29 @@ return : array
     return count
   }
 
+  var partition = function(list, cb){
+    var i,
+        listLength = list.length,
+        temp,
+        trueArr = [],
+        falseArr = [],
+        result = [];
+
+    for(i = 0; i < listLength; i++){
+      temp = cb(list[i]);
+      if(temp === true){
+        trueArr.push(list[i])
+      }else{
+        falseArr.push(list[i])
+      }
+    }
+
+    result.push(trueArr);
+    result.push(falseArr);
+
+    return result;
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -431,7 +454,8 @@ return : array
     "shuffle" : shuffle,
     "sample" : sample,
     "toArray" : toArray,
-    "size" : size
+    "size" : size,
+    "partition" : partition
   }
 
 })(window)

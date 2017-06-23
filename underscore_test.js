@@ -299,3 +299,10 @@ describe("_.size function Test",function(){
       assert.equal(result, 3);
   });
 });
+
+describe("_.partition function Test",function(){
+  it("Split array into two arrays", function(){
+      var result = _.partition([0, 1, 2, 3, 4, 5], function(num){return num % 2 == 1});
+      assert.deepEqual(result, [[1, 3, 5], [0, 2, 4]]);
+  });
+});
