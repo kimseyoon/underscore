@@ -399,6 +399,14 @@ return : array
     return result;
   }
 
+  var size = function(list){
+    var count = 0;
+    for(var key in list){
+      count++;
+    }
+    return count
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -422,7 +430,8 @@ return : array
     "countBy" : countBy,
     "shuffle" : shuffle,
     "sample" : sample,
-    "toArray" : toArray
+    "toArray" : toArray,
+    "size" : size
   }
 
 })(window)

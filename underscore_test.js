@@ -286,10 +286,16 @@ describe("_.countBy function Test",function(){
   });
 });
 
-
 describe("_.toArray function Test",function(){
   it("Creates a real Array from the list", function(){
       var result = (function(){ return _.toArray(arguments).slice(1); })(1, 2, 3, 4)
       assert.deepEqual(result, [2, 3, 4]);
+  });
+});
+
+describe("_.size function Test",function(){
+  it("Return the number of values in the list.", function(){
+      var result = _.size({one: 1, two: 2, three: 3});
+      assert.equal(result, 3);
   });
 });
