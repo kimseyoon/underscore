@@ -285,3 +285,11 @@ describe("_.countBy function Test",function(){
       assert.deepEqual(result,);
   });
 });
+
+
+describe("_.toArray function Test",function(){
+  it("Creates a real Array from the list", function(){
+      var result = (function(){ return _.toArray(arguments).slice(1); })(1, 2, 3, 4)
+      assert.deepEqual(result, [2, 3, 4]);
+  });
+});

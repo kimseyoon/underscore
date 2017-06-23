@@ -391,6 +391,14 @@ return : array
     return result;
   }
 
+  var toArray = function(list){
+    var result = [];
+    for(var key in list){
+      result.push(list[key])
+    }
+    return result;
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -413,7 +421,8 @@ return : array
     "indexBy" : indexBy,
     "countBy" : countBy,
     "shuffle" : shuffle,
-    "sample" : sample
+    "sample" : sample,
+    "toArray" : toArray
   }
 
 })(window)
