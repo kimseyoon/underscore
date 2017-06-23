@@ -46,11 +46,23 @@ Underscore Library 구현하기 프로젝트
 
 - - -
 
-### 2017.06.22
+### 2017.06.21
 
 
 1. groupBy
 2. indexBy
+
+함수 구현 및 Unit Test
+
+- - -
+
+
+### 2017.06.21
+
+
+1. countBy
+2. shuffle
+3. sample
 
 함수 구현 및 Unit Test
 
