@@ -312,4 +312,21 @@ describe("_.first function Test",function(){
       var result = _.first([5, 4, 3, 2, 1]);
       assert.equal(result, 5);
   });
+
+  it("Returns the first element of an array.", function(){
+      var result = _.first([5, 4, 3, 2, 1], 3);
+      assert.deepEqual(result, [5, 4, 3]);
+  });
+});
+
+describe("_.initial function Test",function(){
+  it("Returns everything but the last entry of the array", function(){
+      var result = _.initial([5, 4, 3, 2, 1]);
+      assert.deepEqual(result, [5, 4, 3, 2]);
+  });
+
+  it("Returns everything but the last entry of the array", function(){
+      var result = _.initial([5, 4, 3, 2, 1], 3);
+      assert.deepEqual(result, [5, 4]);
+  });
 });
