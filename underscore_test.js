@@ -342,3 +342,15 @@ describe("_.last function Test",function(){
       assert.deepEqual(result, [3, 2, 1]);
   });
 });
+
+describe("_.rest function Test",function(){
+  it("Returns the rest of the elements in an array.", function(){
+      var result = _.rest([5, 4, 3, 2, 1]);
+      assert.deepEqual(result, [4, 3, 2, 1]);
+  });
+
+  it("Pass an index to return the values of the array from that index onward.", function(){
+      var result = _.rest([5, 4, 3, 2, 1], 3);
+      assert.deepEqual(result, [2, 1]);
+  });
+});

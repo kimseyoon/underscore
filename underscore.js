@@ -429,7 +429,7 @@ return : array
 
     return result;
   }
-
+// Array
   var first = function(list, number){
     if(number === undefined){
       return list[0];
@@ -453,6 +453,15 @@ return : array
       return list[listLength-1];
     }else{
       return list.slice(listLength - number, listLength);
+    }
+  }
+
+  var rest = function(list, number){
+    var listLength = list.length;
+    if(number === undefined){
+      return list.slice(1, listLength);
+    }else{
+      return list.slice(number, listLength);
     }
   }
 
@@ -484,7 +493,8 @@ return : array
     "partition" : partition,
     "first" : first,
     "initial" : initial,
-    "last" : last
+    "last" : last,
+    "rest" : rest
   }
 
 })(window)
