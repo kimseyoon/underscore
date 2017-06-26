@@ -430,6 +430,10 @@ return : array
     return result;
   }
 
+  var first = function(list){
+    return list[0];
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -455,7 +459,8 @@ return : array
     "sample" : sample,
     "toArray" : toArray,
     "size" : size,
-    "partition" : partition
+    "partition" : partition,
+    "first" : first
   }
 
 })(window)

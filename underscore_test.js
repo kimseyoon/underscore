@@ -306,3 +306,10 @@ describe("_.partition function Test",function(){
       assert.deepEqual(result, [[1, 3, 5], [0, 2, 4]]);
   });
 });
+
+describe("_.first function Test",function(){
+  it("Returns the first element of an array.", function(){
+      var result = _.first([5, 4, 3, 2, 1]);
+      assert.equal(result, 5);
+  });
+});
