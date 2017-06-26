@@ -80,3 +80,15 @@ Underscore Library 구현하기 프로젝트
 
 - - -
 
+### 2017.06.26
+
+
+1. first
+2. initial
+3. last
+4. rest
+
+함수 구현 및 Unit Test
+
+- - -
+
