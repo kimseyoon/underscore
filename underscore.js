@@ -439,11 +439,20 @@ return : array
   }
 
   var initial = function(list, number){
-    var listLength = list.length
+    var listLength = list.length;
     if(number === undefined){
       return list.slice(0, (listLength - 1));
     }else{
       return list.slice(0, (listLength - number));
+    }
+  }
+
+  var last = function(list, number){
+    var listLength = list.length;
+    if(number === undefined){
+      return list[listLength-1];
+    }else{
+      return list.slice(listLength - number, listLength);
     }
   }
 
@@ -474,7 +483,8 @@ return : array
     "size" : size,
     "partition" : partition,
     "first" : first,
-    "initial" : initial
+    "initial" : initial,
+    "last" : last
   }
 
 })(window)

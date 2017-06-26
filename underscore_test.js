@@ -330,3 +330,15 @@ describe("_.initial function Test",function(){
       assert.deepEqual(result, [5, 4]);
   });
 });
+
+describe("_.last function Test",function(){
+  it("Returns the last element of an array", function(){
+      var result = _.last([5, 4, 3, 2, 1]);
+      assert.equal(result, 1);
+  });
+
+  it(" Passing n will return the last n elements of the array.", function(){
+      var result = _.last([5, 4, 3, 2, 1], 3);
+      assert.deepEqual(result, [3, 2, 1]);
+  });
+});
