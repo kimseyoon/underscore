@@ -354,3 +354,10 @@ describe("_.rest function Test",function(){
       assert.deepEqual(result, [2, 1]);
   });
 });
+
+describe("_.rest function Test",function(){
+  it("Returns a copy of the array with all falsy values removed.", function(){
+      var result = _.compact([0, 1, false, 2, '', 3, null, undefined]);
+      assert.deepEqual(result, [1, 2, 3]);
+  });
+});

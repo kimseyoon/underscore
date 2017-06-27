@@ -465,6 +465,16 @@ return : array
     }
   }
 
+  var compact = function(list){
+    return filter(list, function(ele){
+      var isBool = true;
+      if(ele === 0 || ele === false || ele === "" || ele === undefined || ele === null || ele === isNaN){
+        isBool = false;
+      }
+      return isBool;
+    })
+  }
+
   return {
     "each" : each,
     "map" : map,
@@ -494,7 +504,8 @@ return : array
     "first" : first,
     "initial" : initial,
     "last" : last,
-    "rest" : rest
+    "rest" : rest,
+    "compact" : compact
   }
 
 })(window)
