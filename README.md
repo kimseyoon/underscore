@@ -96,3 +96,13 @@ Underscore Library 구현하기 프로젝트
 
 - - -
 
+### 2017.06.27
+
+
+1. compact
+2. without
+
+함수 구현 및 Unit Test
+
+- - -
+
