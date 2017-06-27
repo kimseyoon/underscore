@@ -355,9 +355,16 @@ describe("_.rest function Test",function(){
   });
 });
 
-describe("_.rest function Test",function(){
+describe("_.compact function Test",function(){
   it("Returns a copy of the array with all falsy values removed.", function(){
-      var result = _.compact([0, 1, false, 2, '', 3, null, undefined]);
+      var result = _.compact([0, 1, false, 2, '', 3, null, undefined, "12/12"]);
       assert.deepEqual(result, [1, 2, 3]);
+  });
+});
+
+describe("_.without function Test",function(){
+  it("Returns a copy of the array with all instances of the values removed.", function(){
+      var result = _.without([1, 2, 1, 0, 3, 1, 4], 0, 1);
+      assert.deepEqual(result, [2, 3, 4]);
   });
 });

@@ -468,11 +468,33 @@ return : array
   var compact = function(list){
     return filter(list, function(ele){
       var isBool = true;
-      if(ele === 0 || ele === false || ele === "" || ele === undefined || ele === null || ele === isNaN){
+      if(ele == 0 || ele === false || ele === "" || ele === undefined || ele === null || isNaN(ele)){
         isBool = false;
       }
       return isBool;
     })
+  }
+
+  var without = function(list){
+    var restParams = [];
+    for(var key in arguments){
+      if(arguments.hasOwnProperty(key)){
+        if(key == 0){
+          continue;
+        }
+        restParams.push(arguments[key]);
+      }
+    }
+
+    for(var j = 0; j < restParams.length; j++){
+      for(var i = 0; i < list.length; i++){
+        if(list[i] === restParams[j]){
+          list.splice(i, 1);
+        }
+      }
+    }
+
+    return list
   }
 
   return {
@@ -505,7 +527,8 @@ return : array
     "initial" : initial,
     "last" : last,
     "rest" : rest,
-    "compact" : compact
+    "compact" : compact,
+    "without" : without
   }
 
 })(window)
